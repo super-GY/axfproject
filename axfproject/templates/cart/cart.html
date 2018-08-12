@@ -1,0 +1,99 @@
+{%extends 'base/base_main.html'%}
+{%load static%}
+{%block MyCSS%}
+{{block.super}}
+<link rel="stylesheet" href="{%static 'axf/cart/css/cart.css'%}">
+{%endblock%}
+
+{%block content%}
+<div id="cart">
+    <h3>{{title}}</h3>
+    <div class="full">
+        <section>
+            <ul>
+                <li>
+                    收货人：{{user.username}}
+                    <div>
+                        <p>修改&gt;</p>
+                    </div>
+                </li>
+                <li>
+                    电&nbsp;&nbsp;&nbsp;话：{{user.phone}}
+                </li>
+                <li>
+                    收货地址：{{user.address}}
+                </li>
+            </ul>
+            <div class="bill">
+                <p>闪送超市</p>
+                <p>满100减30，欢迎来搞</p>
+                <a href="#">凑单专区</a>
+            </div>
+
+            <div class="delivery">
+                <span>收货时间</span>
+                <span>一小时送达</span>
+                <a href="">可预订&gt;</a>
+
+            </div>
+            <div class="delivery">
+                <span>备注留言</span>
+                <input type="text" placeholder="如有特殊需求请留言">
+            </div>
+
+            <menu>
+                <ul>
+                    {%for i in cartitems%}
+                        <li class="menuList" cartid="{{i.cid}}">
+                            <div class="confirm" >
+                                <span>
+                                    {%if i.is_selected%}
+                                        <span>√</span>
+                                    {%else%}
+                                        <span></span>
+                                    {%endif%}
+                                </span>
+                            </div>
+                            <a href="#">
+                                <img src="{{i.item.productimg}}" alt="">
+                                <p>{{i.item.productlongname}}</p>
+                                <p>{{i.item.price}}</p>
+                            </a>
+                            <section>
+                                <button class="subBtn">-</button>
+                                <span>{{i.num}}</span>
+                                <button class="addBtn">+</button>
+                            </section>
+                        </li>
+                    {%endfor%}
+                </ul>
+            </menu>
+            <div class="payTheBill">
+                <div class="all_select">
+                    {%if is_selected_all%}
+                        <span>
+                            <span>√</span>
+                        </span>
+                    {%else%}
+                        <span>
+                            <span></span>
+                        </span>
+                    {%endif%}
+                </div>
+                <p>
+                    <span>全选</span>
+                    <span>共计：</span>
+                    <span id="sum_price">{{sum_price}}</span>
+                </p>
+                <span id="order">下单</span>
+            </div>
+        </section>
+    </div>
+
+
+</div>
+{%endblock%}
+
+{%block MyJs%}
+    <script type="text/javascript" src="{%static 'axf/cart/js/cart.js'%}"></script>
+{%endblock%}

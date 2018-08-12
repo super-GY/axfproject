@@ -1,0 +1,146 @@
+{%extends 'base/base_main.html'%}
+{%load static%}
+
+{%block MyCSS%}
+    {{block.super}}
+    <link rel="stylesheet" href="{%static 'axf/market/css/market.css'%}">
+{%endblock%}
+
+{%block content%}
+    <div id="market">
+        <!--分类-->
+        <aside>
+            <ul>
+                {%for i in goodstypes%}
+                    <li>
+                        <a href="{%url 'axf:market_with_param' i.typeid 0 0 %}">{{i.typename}}</a>
+                       {%ifequal i.typeid selectedid%}
+                            <span class="yellowSlide"></span>
+                        {%endifequal%}
+                    </li>
+                {%endfor%}
+            </ul>
+        </aside>
+
+        <!--全部类型和综合排序-->
+        <section>
+
+            <nav>
+                <ul>
+                    <li>
+                        <span id="all_types_btn">全部类型 <span class="glyphicon glyphicon-chevron-down" id="type_icon"></span></span>
+
+
+                    </li>
+                    <li>
+
+                         <span id="all_sort_btn">综合排序 <span class="glyphicon glyphicon-chevron-down" id="sort_icon"></span></span>
+                    </li>
+                </ul>
+            </nav>
+
+            <menu>
+                <ul>
+                    {%for i in goods%}
+                        <li>
+                            <a href="#">
+                                <img src="{{i.productimg}}" alt="">
+                                <div class="shoppingInfo">
+                                    <h6>{{i.productname}}</h6>
+                                    <p class="detailTag">
+                                        <span>精选</span>
+                                        <span></span>
+                                    </p>
+                                    <p class="unit">{{i.specifics}}</p>
+                                    <p class="price">
+                                        <span>￥{{i.price}}</span>
+                                        <s>${{i.marketprice}}</s>
+                                    </p>
+                                </div>
+                            </a>
+                            <section>
+                            <button class="subShopping">-</button>
+                            <span>0</span>
+                            <button class="addShopping">+</button>
+                        </section>
+                        </li>
+
+                    {%endfor%}
+                </ul>
+                <!--小分类-->
+                <div id="category_container">
+                    <div>
+                        {%for i in sub_types%}
+                            <a href="{%url 'axf:market_with_param' selectedid i.1 0%}">
+                                {%ifequal i.1 selected_sub_type_id%}
+                                    <!--选中的那个变颜色-->
+                                    <button class="btn btn-success">
+                                        {{i.0}}
+                                    </button>
+                                {%else%}
+                                    <!--没选中 不变色-->
+                                    <button>
+                                        {{i.0}}
+                                    </button>
+                                {%endifequal%}
+                            </a>
+                        {%endfor%}
+                    </div>
+                </div>
+
+                <!--排序-->
+                <div id="sort_container">
+                    <div>
+
+                            <a href="{%url 'axf:market_with_param' selectedid selected_sub_type_id 0%}">
+                                {%ifequal 0 sort_type%}
+                                    <!--选中的那个变颜色-->
+                                    <button class="btn btn-success">
+                                        综合排序
+                                    </button>
+                                {%else%}
+                                    <!--没选中 不变色-->
+                                    <button>
+                                        综合排序
+                                    </button>
+                                {%endifequal%}
+                            </a>
+
+                            <a href="{%url 'axf:market_with_param' selectedid selected_sub_type_id 1%}">
+                                {%ifequal 1 sort_type%}
+                                    <!--选中的那个变颜色-->
+                                    <button class="btn btn-success">
+                                        价格最低
+                                    </button>
+                                {%else%}
+                                    <!--没选中 不变色-->
+                                    <button>
+                                        价格最低
+                                    </button>
+                                {%endifequal%}
+                            </a>
+
+                            <a href="{%url 'axf:market_with_param' selectedid selected_sub_type_id 2%}">
+                                {%ifequal 2 sort_type%}
+                                    <!--选中的那个变颜色-->
+                                    <button class="btn btn-success">
+                                        销量优先
+                                    </button>
+                                {%else%}
+                                    <!--没选中 不变色-->
+                                    <button>
+                                        销量优先
+                                    </button>
+                                {%endifequal%}
+                            </a>
+                    </div>
+                </div>
+            </menu>
+        </section>
+    </div>
+{%endblock%}
+{%block MyJs%}
+{{block.super}}
+
+<script type="text/javascript" src="{%static 'axf/market/js/market.js'%}"></script>
+{%endblock%}

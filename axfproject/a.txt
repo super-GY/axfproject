@@ -1,0 +1,45 @@
+商品表：
+商品id(productid)        118826
+图片(productimg)      http://img01.bqstatic.com/upload/goods/201/701/1916/20170119164119_550363.jpg@200w_200h_90Q
+名字(productname)    爱鲜蜂·海南千禧果
+长名字(productlongname)   爱鲜蜂·海南千禧果400-450g/盒
+是否精选(isxf)    1
+是否买一增一(pmdesc)   1
+规格(specifics)
+价格(price)         13.80
+原价(marketprice)     13.8
+商品组id(categoryid)       103532
+商品子组id(childcid)      103533
+商品子组名名称(childcidname)   国产水果
+详情页id(dealerid)       4858
+库存(storenums)     7
+销量(productnum)
+
+
+
+用户表:
+用户账号
+用户密码
+昵称
+手机号码
+地址
+头像路径
+用户等级
+token值
+
+
+
+购物车表：
+用户id    商品id   数量   总价    是否选中    图片    长名字   属于哪个订单    isDelete
+
+
+
+订单表：
+订单id(唯一的)  用户id   进度
+
+
+
+
+
+xadmin   类视图   表单类   部署
+

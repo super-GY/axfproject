@@ -1,0 +1,82 @@
+.order_num{
+    margin: 0.5rem;
+    text-align: center;
+}
+/*
+    商品信息
+*/
+.order_info {
+    height: 100%;
+    position: relative;
+    overflow: auto;
+}
+
+.order_info ul {
+    position: relative;
+}
+
+.order_info ul li {
+    background: white;
+    border-bottom: 0.04rem solid #e0e0e0;
+    position: relative;
+}
+
+.order_info ul li a {
+    display: block;
+    height: 3rem;
+}
+
+.order_info ul li a img {
+    display: block;
+    width: 2.8rem;
+    float: left;
+}
+
+/*
+    商品详情
+*/
+.shoppingInfo {
+    width: 4.6rem;
+    float: right;
+    font-size: 0.35rem;
+}
+
+.shoppingInfo h6 {
+    margin: 0.1rem 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 0.5rem;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 0.38rem;
+}
+
+/*
+    单位
+*/
+.unit {
+    color: grey;
+    position: absolute;
+    bottom: 1rem;
+}
+
+.price {
+    position: absolute;
+    bottom: 0.15rem;
+    font-weight: 200;
+    margin: 0.2rem 0;
+}
+
+.price > span {
+    padding: 0 0.35rem 0 0;
+    color: red;
+}
+
+.price > s {
+    color: grey;
+}
+
+.total_price{
+    margin: 0.5rem;
+    text-align: center;
+}

@@ -1,0 +1,133 @@
+{%extends 'base/base_main.html'%}
+{%load static%}
+{%block MyCSS%}
+{{block.super}}
+    <link rel="stylesheet" href="{%static 'axf/mine/css/mine.css'%}">
+{%endblock%}
+
+{%block content%}
+    <div id="mine">
+        <!--用户头部信息-->
+        <div class="fixed">
+            <span class="glyphicon glyphicon-user"></span>
+            <p class="not_login">
+                <a href="{%url 'axf:login'%}">未登录</a>
+            </p>
+            <p class="level">
+                <span class="glyphicon glyphicon-fire"></span>
+                <span>等级</span>
+            </p>
+            <p class="collect">
+                <span class="glyphicon glyphicon-heart"></span>
+                <span>收藏</span>
+            </p>
+
+
+        </div>
+        <div id="regis">
+            <a href="{%url 'axf:register'%}">注册</a>
+        </div>
+
+        <!--我的订单-->
+        <div class="mine_info">
+            <p>
+                我的订单
+                <a href="#">查看全部订单&gt;</a>
+            </p>
+
+            <div id="nav">
+                <ul>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-usd"></span>
+                            </dt>
+                            <dd>待付款</dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </dt>
+                            <dd>待收货</dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </dt>
+                            <dd>待评价</dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-retweet"></span>
+                            </dt>
+                            <dd>退款/售后</dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+
+            <menu>
+                <ul>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-bullhorn"></span>
+                            </dt>
+                            <dd>积分商城</dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-credit-card"></span>
+                            </dt>
+                            <dd>优惠券</dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-import"></span>
+                            </dt>
+                            <dd>收货地址</dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-phone-alt"></span>
+                            </dt>
+                            <dd>客服反馈</dd>
+                        </dl>
+                    </li>
+
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-asterisk"></span>
+                            </dt>
+                            <dd>关于我们</dd>
+                        </dl>
+                    </li>
+                </ul>
+            </menu>
+
+            <!--退出登录-->
+            <p>
+                <a href="....">退出</a>
+            </p>
+        </div>
+    </div>
+{%endblock%}
